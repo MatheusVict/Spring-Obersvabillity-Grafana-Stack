@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: fraud-detection-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fraud_detection
+    username: postgres
+    password: 123
+  sql:
+    init:
+      data-locations: classpath:script.sql
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8081
+
