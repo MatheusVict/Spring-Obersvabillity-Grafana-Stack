@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Loan {
     @Id
     private Long id;
