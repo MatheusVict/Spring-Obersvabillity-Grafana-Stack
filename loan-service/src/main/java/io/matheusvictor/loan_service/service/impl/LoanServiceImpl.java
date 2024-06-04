@@ -7,6 +7,7 @@ import io.matheusvictor.loan_service.entity.LoanStatus;
 import io.matheusvictor.loan_service.repository.LoanRepository;
 import io.matheusvictor.loan_service.service.LoanService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LoanServiceImpl implements LoanService {
 
     private final LoanRepository loanRepository;
@@ -30,8 +32,8 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public String ApplyLoan(LoanDto loanDto) {
         Loan loan = loanDto.toLoan();
-
         LoanStatus status = fraudDetectionClient.evaluateLoan(loan.getCustomerId());
+        log.info("Response from client: {}", status);
         loan.setLoanStatus(status);
 
         if (status.equals(LoanStatus.APPROVED)) {

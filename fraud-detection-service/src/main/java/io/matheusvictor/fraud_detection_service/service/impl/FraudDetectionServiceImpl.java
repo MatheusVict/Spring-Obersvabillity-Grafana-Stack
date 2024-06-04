@@ -14,6 +14,6 @@ public class FraudDetectionServiceImpl implements FraudDetectionService {
 
     @Override
     public LoanStatus checkForFraud(int customerId) {
-        return fraudDetectionRepository.existsByCustomerId(customerId) ? LoanStatus.REJECTED : LoanStatus.APPROVED;
+        return fraudDetectionRepository.existsByCustomerId(customerId) ? LoanStatus.APPROVED : LoanStatus.REJECTED;
     }
 }

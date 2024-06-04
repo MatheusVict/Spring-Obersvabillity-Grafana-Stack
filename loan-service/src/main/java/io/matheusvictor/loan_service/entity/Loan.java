@@ -1,9 +1,6 @@
 package io.matheusvictor.loan_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -15,6 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Loan {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String loanId;
     private String customerName;
